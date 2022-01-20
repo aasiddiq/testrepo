@@ -36,6 +36,10 @@ jobs:
           ref: users/aasiddiq/automation_action
           token: ${{ secrets.GIT_HUB_TOKEN_PRIVATE_ACTION }} # stored in GitHub secrets
           path: .github/actions/my-action
+      - name: Run a one-line script
+        run: echo Hello, world!
+            | ls
+            | ls ./.github/action/my-action
       - name: Run My Action
         uses: ./.github/actions/my-action
         with:
