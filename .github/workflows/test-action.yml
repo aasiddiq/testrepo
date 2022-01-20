@@ -42,7 +42,9 @@ jobs:
              cd .github/actions/my-action
       - name: Set-up node
         uses: actions/setup-node@v2.5.1
-      - run: npm ci
+      - run: |
+              ls
+              npm ci
       - name: Execute tests
         run: |
              npm run test -- --e=staging --app=all
