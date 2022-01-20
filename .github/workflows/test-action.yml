@@ -40,6 +40,5 @@ jobs:
         run: echo Hello, world!
             | ls .github/actions/my-action
       - name: Run My Action
-        uses: ./.github/actions/my-action
-        with:
-          app: all
+        run: cd .github/actions/my-action
+             | npm run test -- --e=staging --app=all
