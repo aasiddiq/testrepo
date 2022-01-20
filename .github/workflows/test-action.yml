@@ -32,8 +32,8 @@ jobs:
       - name: Checkout GitHub Action Repo
         uses: actions/checkout@v2
         with:
-          repository: github/ChatOps-Automation
-          ref: main
+          repository: github/ChatOps-Test-Automation
+          ref: users/aasiddiq/automation_action
           token: ${{ secrets.GIT_HUB_TOKEN_PRIVATE_ACTION }} # stored in GitHub secrets
           path: .github/actions/my-action
       - name: Run My Action
