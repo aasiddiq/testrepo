@@ -49,4 +49,5 @@ jobs:
               npm ci
       - name: Execute tests
         run: |
-             npm run test -- --e=staging --app=all
+              cd .github/actions/my-action
+              npm run test -- --e=staging --app=all
