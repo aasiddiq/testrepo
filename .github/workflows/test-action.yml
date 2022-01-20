@@ -38,7 +38,7 @@ jobs:
           path: .github/actions/my-action
       - name: Run a one-line script
         run: echo Hello, world!
-            | ls .github/
+            | ls .github/actions/my-action
       - name: Run My Action
         uses: ./.github/actions/my-action
         with:
