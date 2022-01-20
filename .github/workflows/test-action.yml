@@ -37,8 +37,10 @@ jobs:
           token: ${{ secrets.GIT_HUB_TOKEN_PRIVATE_ACTION }} # stored in GitHub secrets
           path: .github/actions/my-action
       - name: Run a one-line script
-        run: echo Hello, world!
-            | ls .github/actions/my-action
+        run: |
+             echo Hello, world!
+             ls .github/actions/my-action
       - name: Run My Action
-        run: cd .github/actions/my-action
-             | npm run test -- --e=staging --app=all
+        run: |
+             cd .github/actions/my-action
+             npm run test -- --e=staging --app=all
