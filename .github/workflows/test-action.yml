@@ -39,8 +39,10 @@ jobs:
       - name: Run a one-line script
         run: |
              echo Hello, world!
-             ls .github/actions/my-action
-      - name: Run My Action
-        run: |
              cd .github/actions/my-action
+      - name: Set-up node
+        uses: actions/setup-node@v2.5.1
+      - run: npm ci
+      - name: Execute tests
+        run: |
              npm run test -- --e=staging --app=all
