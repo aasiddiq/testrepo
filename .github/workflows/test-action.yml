@@ -34,7 +34,13 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-      - name: Jest Coverage Diff
-        uses: github/ChatOps-Automation@f85c87fadd9c69771af202d4bbc19083975da775
+      - name: Checkout GitHub Action Repo
+        uses: actions/checkout@v2
+        with:
+          repository: github/ChatOps-Automation@f85c87fadd9c69771af202d4bbc19083975da775
+          token: ${{ secrets.GIT_HUB_TOKEN_PRIVATE_ACTION }} # stored in GitHub secrets
+          path: .github/actions/my-action
+      - name: Run My Action
+        uses: ./.github/actions/my-action
         with:
           app: all
