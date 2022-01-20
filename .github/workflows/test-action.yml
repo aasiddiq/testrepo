@@ -39,7 +39,6 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
             | ls
-            | ls ./.github/action/my-action
       - name: Run My Action
         uses: ./.github/actions/my-action
         with:
