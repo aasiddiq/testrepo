@@ -35,6 +35,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
       - name: Jest Coverage Diff
-        uses: github/ChatOps-Automation@github/ChatOps-Automation
+        uses: github/ChatOps-Automation@f85c87fadd9c69771af202d4bbc19083975da775
         with:
           app: all
