@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 stages:
-- stage: Build
+- stage: Build Dev
   jobs:
   - deployment: Deploy
     displayName: Deploy app
@@ -22,6 +22,12 @@ stages:
               echo Add other tasks to build, test, and deploy your project.
               echo See https://aka.ms/yaml
             displayName: 'Run a multi-line script'
+- stage: Build prod
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy app
+    pool:
+      vmImage: ubuntu-latest
     environment: 'prod'
     strategy:
       runOnce:
