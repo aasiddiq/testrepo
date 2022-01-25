@@ -3,34 +3,34 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
-
-pool:
-  vmImage: ubuntu-latest
-  
-environment: 'dev'
-  strategy:
-    runOnce:
-      deploy:
-        steps:
+stages:
+- stage: Build
+  jobs:
+  - deployment: Deploy
+    displayName: Deploy app
+    pool:
+      vmImage: ubuntu-latest
+    environment: 'dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
           - script: echo Hello, world!
-          displayName: 'Run a one-line script'
+            displayName: 'Run a one-line script'
 
           - script: |
-            echo Add other tasks to build, test, and deploy your project.
-            echo See https://aka.ms/yaml
-          displayName: 'Run a multi-line script'
-
-environment: 'prod'
-  strategy:
-    runOnce:
-      deploy:
-        steps:
+              echo Add other tasks to build, test, and deploy your project.
+              echo See https://aka.ms/yaml
+            displayName: 'Run a multi-line script'
+    environment: 'dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
           - script: echo Hello, world!
-          displayName: 'Run a one-line script'
+            displayName: 'Run a one-line script'
 
           - script: |
-            echo Add other tasks to build, test, and deploy your project.
-            echo See https://aka.ms/yaml
-          displayName: 'Run a multi-line script'
+              echo Add other tasks to build, test, and deploy your project.
+              echo See https://aka.ms/yaml
+            displayName: 'Run a multi-line script'
