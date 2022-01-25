@@ -6,16 +6,6 @@
 trigger:
 - main
 
-pr:
-  branches:
-    include:
-    - features/*
-    exclude:
-    - features/experimental/*
-  paths:
-    exclude:
-    - README.md
-
 pool:
   vmImage: ubuntu-latest
 
