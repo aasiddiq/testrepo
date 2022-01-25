@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 stages:
-- stage: Build-Dev
+- stage: Build_Dev
   jobs:
   - deployment: Deploy
     displayName: Deploy app
@@ -22,7 +22,7 @@ stages:
               echo Add other tasks to build, test, and deploy your project.
               echo See https://aka.ms/yaml
             displayName: 'Run a multi-line script'
-- stage: Build-prod
+- stage: Build_prod
   jobs:
   - deployment: Deploy
     displayName: Deploy app
