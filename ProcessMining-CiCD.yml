@@ -3,27 +3,68 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- main
+stages:
+- stage: Build_Dev
+  jobs:
+  - job: MyJob1
+    displayName: My First Job
+    continueOnError: true
+    workspace:
+      clean: outputs
+    steps:
+    - script: echo My first job
+  - job: MyJob2
+    displayName: My First Job
+    continueOnError: true
+    workspace:
+      clean: outputs
+    steps:
+    - script: echo My first job
+  - deployment: Deploy
+    displayName: Deploy app
+    pool:
+      vmImage: ubuntu-latest
+    environment: 'dev'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo Hello, world!
+            displayName: 'Run a one-line script'
 
-pr:
-  branches:
-    include:
-    - features/*
-    exclude:
-    - features/experimental/*
-  paths:
-    exclude:
-    - README.md
+          - script: |
+              echo Add other tasks to build, test, and deploy your project.
+              echo See https://aka.ms/yaml
+            displayName: 'Run a multi-line script'
+- stage: Build_prod
+  jobs:
+  - job: MyJob1P
+    displayName: My First Job
+    continueOnError: true
+    workspace:
+      clean: outputs
+    steps:
+    - script: echo My first job
+  - job: MyJob2P
+    displayName: My First Job
+    continueOnError: true
+    workspace:
+      clean: outputs
+    steps:
+    - script: echo My first job
+  - deployment: Deploy
+    displayName: Deploy app
+    pool:
+      vmImage: ubuntu-latest
+    environment: 'prod'
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo Hello, world!
+            displayName: 'Run a one-line script'
 
-pool:
-  vmImage: ubuntu-latest
-
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+          - script: |
+              echo Add other tasks to build, test, and deploy your project.
+              echo See https://aka.ms/yaml
+            displayName: 'Run a multi-line script'
