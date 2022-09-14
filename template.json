@@ -1,0 +1,60 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "metadata": {
+    "_generator": {
+      "name": "bicep",
+      "version": "0.10.13.619",
+      "templateHash": "2516439878517494301"
+    }
+  },
+  "parameters": {
+    "botDisplayName": {
+      "type": "string"
+    },
+    "endPoint": {
+      "type": "string"
+    },
+    "botAppId": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "location": "[resourceGroup().location]",
+    "uniqueName": "[format('gh{0}', uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.BotService/botServices",
+      "apiVersion": "2022-06-15-preview",
+      "name": "[format('{0}-bot', variables('uniqueName'))]",
+      "location": "[variables('location')]",
+      "kind": "azurebot",
+      "sku": {
+        "name": "F0"
+      },
+      "properties": {
+        "displayName": "[parameters('botDisplayName')]",
+        "endpoint": "[parameters('endPoint')]",
+        "msaAppId": "[parameters('botAppId')]",
+        "msaAppType": "MultiTenant"
+      }
+    },
+    {
+      "type": "Microsoft.BotService/botServices/channels",
+      "apiVersion": "2022-06-15-preview",
+      "name": "[format('{0}-bot/MsTeamsChannel', variables('uniqueName'))]",
+      "location": "[variables('location')]",
+      "properties": {
+        "channelName": "MsTeamsChannel",
+        "properties": {
+          "acceptedTerms": true,
+          "deploymentEnvironment": "commercialdeployment",
+          "enableCalling": false,
+          "incomingCallRoute": "graphPma",
+          "isEnabled": true
+        }
+      }
+    }
+  ]
+}
