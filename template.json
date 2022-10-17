@@ -31,7 +31,7 @@
       },
       "properties": {
         "displayName": "GHAE",
-        "endpoint": "[format('https://teams.{0}/teams/messages', parameters('ghaeInstanceName'))]",
+        "endpoint": "[format('https://teams.{0}/teams/message', parameters('ghaeInstanceName'))]",
         "msaAppId": "[parameters('botAppId')]",
         "msaAppType": "MultiTenant"
       }
