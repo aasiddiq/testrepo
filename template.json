@@ -30,7 +30,7 @@
         "name": "F0"
       },
       "properties": {
-        "displayName": "GHAE",
+        "displayName": "GHE",
         "endpoint": "[format('https://{0}/_msteams/teams/message', parameters('ghaeInstanceName'))]",
         "msaAppId": "[parameters('botAppId')]",
         "msaAppType": "MultiTenant"
