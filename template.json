@@ -9,15 +9,15 @@
     }
   },
   "parameters": {
-    "ghaeInstanceName": {
+    "ghesInstanceNameHostName": {
       "type": "string"
     },
-    "botAppId": {
+    "MicrosoftAppId": {
       "type": "string"
     }
   },
   "variables": {
-    "uniqueName": "[format('gh{0}', uniqueString(resourceGroup().id))]"
+    "uniqueName": "[format('gh{0}', uniqueString(resourceGroup().id, deployment().name))]"
   },
   "resources": [
     {
@@ -31,8 +31,8 @@
       },
       "properties": {
         "displayName": "GHE",
-        "endpoint": "[format('https://{0}/_msteams/teams/message', parameters('ghaeInstanceName'))]",
-        "msaAppId": "[parameters('botAppId')]",
+        "endpoint": "[format('https://{0}/_msteams/teams/message', parameters('ghesInstanceNameHostName'))]",
+        "msaAppId": "[parameters('MicrosoftAppId')]",
         "msaAppType": "MultiTenant"
       }
     },
