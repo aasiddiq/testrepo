@@ -9,7 +9,7 @@
     }
   },
   "parameters": {
-    "ghesInstanceNameHostName": {
+    "GHESInstanceNameHostName": {
       "type": "string"
     },
     "MicrosoftAppId": {
@@ -31,7 +31,7 @@
       },
       "properties": {
         "displayName": "GHE",
-        "endpoint": "[format('https://{0}/_msteams/teams/message', parameters('ghesInstanceNameHostName'))]",
+        "endpoint": "[format('https://{0}/_msteams/teams/message', parameters('GHESInstanceNameHostName'))]",
         "msaAppId": "[parameters('MicrosoftAppId')]",
         "msaAppType": "MultiTenant"
       }
