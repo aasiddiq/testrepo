@@ -35,6 +35,12 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          if grep -rnw 'README.md' -e 'blahblahblah'; then
+            echo 'test'
+            exit 1
+          else 
+            echo 'not'
+          fi
   skip:
     runs-on: ubuntu-latest
     environment: test
