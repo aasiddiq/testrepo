@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/aasiddiq/testrepo#readme",
   "dependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^8.0.0"
   }
 }
