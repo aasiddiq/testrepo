@@ -1,0 +1,22 @@
+{
+  "name": "testrepo",
+  "version": "1.0.0",
+  "description": "test changes",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aasiddiq/testrepo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aasiddiq/testrepo/issues"
+  },
+  "homepage": "https://github.com/aasiddiq/testrepo#readme",
+  "dependencies": {
+    "eslint": "^7.32.0"
+  }
+}
