@@ -18,5 +18,6 @@
   "homepage": "https://github.com/aasiddiq/testrepo#readme",
   "dependencies": {
     "eslint": "^8.0.0"
+    "jest": "^28.1.3"
   }
 }
