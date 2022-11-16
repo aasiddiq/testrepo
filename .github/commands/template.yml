@@ -1,0 +1,46 @@
+# Do not edit outside of github/howie and github/howie-testing
+---
+name: Batch Status Update
+description: Batch Status Update
+body:
+  - type: dropdown
+    attributes:
+      label: Status
+      options:
+        - label: "GREEN \U0001F7E2 (All good, smooth sailing)"
+          value: "Status: GREEN"
+        - label:
+            "YELLOW \U0001F7E1 (We've identified areas of concern, but have them under
+            control at this time)"
+          value: "Status: YELLOW"
+        - label: "RED \U0001F534 (We need help, there are blockers beyond our control)"
+          value: "Status: RED"
+        - label: GREY ⚪️ (Not started, paused, not currently being worked on)
+          value: "Status: GREY"
+        - label: "BLACK ⚫️ (We shipped it \U0001F389)"
+          value: "Status: BLACK"
+  - type: input
+    attributes:
+      label: Target date
+      format: date
+  - type: textarea
+    attributes:
+      label: Update
+      placeholder: A few words on how it's going
+  - type: textarea
+    attributes:
+      label: Key Decisions Made
+      placeholder: Description of any key decisions made during the week wrt to the planned work
+  - type: textarea
+    attributes:
+      label: Next major deliverables or milestones
+      placeholder: Description of anticipated task, completion date, and what we'll be working on to achieve the task.
+  - type: textarea
+    attributes:
+      label: Risks and Mitigations
+      placeholder: Description of any risks or blockers and mitigations  
+  - type: input
+    attributes:
+      label: "Attribution"
+      value: ":rocket: _created with a slash command from [Howie](https://github.com/github/howie) by typing /batch_"
+      format: text
