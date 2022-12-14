@@ -15,10 +15,9 @@
             "visible": true
           }
       ],
-      "steps": [
-      ],
+      "steps": [],
       "outputs": {
-        "pathParameter": "[if(equals(basics('pathParameter'), true), 'true', 'false')]"
+        "pathParameter": "[(basics('pathParameter')]"
       }
     }
   }
