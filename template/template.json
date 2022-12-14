@@ -16,19 +16,16 @@
       "type": "string"
     },
     "pathParameter": {
-      "name": "pathParameter",
-      "type": "Microsoft.Common.CheckBox",
-      "label": "Append path '_msteams'",
-      "toolTip": "Ensures if the path _msteams needs to be checked in case of non-proxy setup",
-      "constraints": {
-        "required": false
-      },
-      "visible": true
+      "type": "bool",
+      "defaultValue": true,
+      "metadata": {
+        "description": "If using in non-proxy mode don't set the path, else append _msteams to path"
+      }
     }
   },
   "variables": {
     "uniqueName": "[format('gh{0}', uniqueString(resourceGroup().id, deployment().name))]",
-    "pathValue": "[if(equals(parameters('pathParameter'), true), '/_msteams', '')]"
+    "endpoint": "[if(parameters('pathParameter'), format('https://{0}/_msteams/teams/message', parameters('GHESInstanceNameHostName')), format('https://{0}/teams/message', parameters('GHESInstanceNameHostName')))]"
   },
   "resources": [
     {
@@ -42,7 +39,7 @@
       },
       "properties": {
         "displayName": "GHE",
-        "endpoint": "[format('https://{0}{1}/teams/message', parameters('GHESInstanceNameHostName'), variables('pathValue'))]",
+        "endpoint": "[variables('endpoint')]",
         "msaAppId": "[parameters('MicrosoftAppId')]",
         "msaAppType": "MultiTenant"
       }
