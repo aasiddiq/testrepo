@@ -5,6 +5,24 @@
     "parameters": {
       "basics": [
         {
+            "name": "MicrosoftAppId",
+            "type": "Microsoft.Common.TextBox",
+            "label": "Microsoft App ID",
+            "toolTip": "The Microsoft App ID for the bot",
+            "constraints": {
+              "required": true
+            }
+        },
+        {
+            "name": "GHESInstanceHostName",
+            "type": "Microsoft.Common.TextBox",
+            "label": "GHES Instance Host Name",
+            "toolTip": "The host name of the GHES instance or the proxy",
+            "constraints": {
+              "required": true
+            }
+        },
+        {
             "name": "pathParameter",
             "type": "Microsoft.Common.CheckBox",
             "label": "Append path '_msteams'",
@@ -17,6 +35,8 @@
       ],
       "steps": [],
       "outputs": {
+        "MicrosoftAppId": "[basics('MicrosoftAppId')]",
+        "GHESInstanceHostName": "[basics('GHESInstanceHostName')]",
         "pathParameter": "[if(equals(basics('pathParameter'), true), 'true', 'false')]"
       }
     }
