@@ -5,18 +5,6 @@
     "parameters": {
       "basics": [
         {
-            "name": "MicrosoftAppId",
-            "type": "Microsoft.Common.TextBox",
-            "label": "app id",
-            "toolTip": "The app id of the bot",
-            "constraints": {
-              "required": true,
-              "regex": "^[a-zA-Z]{1,30}$",
-              "validationMessage": "Please enter a valid number between 1 and 99999"
-            },
-            "visible": true
-        },
-        {
             "name": "pathParameter",
             "type": "Microsoft.Common.CheckBox",
             "label": "Append path '_msteams'",
@@ -29,8 +17,7 @@
       ],
       "steps": [],
       "outputs": {
-        "MicrosoftAppId": "[basics('MicrosoftAppId')]",
-        "pathParameter": "[basics('pathParameter')]"
+        "pathParameter": "[if(equals(basics('pathParameter'), true), 'true', 'false')]"
       }
     }
   }
