@@ -28,7 +28,7 @@
   },
   "variables": {
     "uniqueName": "[format('gh{0}', uniqueString(resourceGroup().id, deployment().name))]",
-    "pathValue": "[if(equals('pathParameter'), true), '/_msteams', '')]"
+    "pathValue": "[if(equals(parameters('pathParameter'), true), '/_msteams', '')]"
   },
   "resources": [
     {
