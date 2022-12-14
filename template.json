@@ -15,7 +15,7 @@
     "MicrosoftAppId": {
       "type": "string"
     },
-    {
+    "pathParameter": {
       "name": "pathParameter",
       "type": "Microsoft.Common.CheckBox",
       "label": "Append path '_msteams'",
