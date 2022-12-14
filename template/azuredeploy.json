@@ -9,7 +9,7 @@
     }
   },
   "parameters": {
-    "GHESInstanceNameHostName": {
+    "GHESInstanceHostName": {
       "type": "string"
     },
     "MicrosoftAppId": {
@@ -25,7 +25,7 @@
   },
   "variables": {
     "uniqueName": "[format('gh{0}', uniqueString(resourceGroup().id, deployment().name))]",
-    "endpoint": "[if(parameters('pathParameter'), format('https://{0}/_msteams/teams/message', parameters('GHESInstanceNameHostName')), format('https://{0}/teams/message', parameters('GHESInstanceNameHostName')))]"
+    "endpoint": "[if(parameters('pathParameter'), format('https://{0}/_msteams/teams/message', parameters('GHESInstanceHostName')), format('https://{0}/teams/message', parameters('GHESInstanceHostName')))]"
   },
   "resources": [
     {
