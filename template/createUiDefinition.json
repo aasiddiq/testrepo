@@ -5,19 +5,19 @@
     "parameters": {
       "basics": [
         {
-            "name": "MicrosoftAppId",
+            "name": "GHESInstanceHostName",
             "type": "Microsoft.Common.TextBox",
-            "label": "Microsoft App ID",
-            "toolTip": "The Microsoft App ID for the bot",
+            "label": "GHES Instance Host Name",
+            "toolTip": "The host name of the GHES instance or the proxy",
             "constraints": {
               "required": true
             }
         },
         {
-            "name": "GHESInstanceHostName",
+            "name": "MicrosoftAppId",
             "type": "Microsoft.Common.TextBox",
-            "label": "GHES Instance Host Name",
-            "toolTip": "The host name of the GHES instance or the proxy",
+            "label": "Microsoft App ID",
+            "toolTip": "The Microsoft App ID for the bot",
             "constraints": {
               "required": true
             }
