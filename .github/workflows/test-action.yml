@@ -52,3 +52,5 @@ jobs:
               cd .github/actions/my-action
               pwd
               npm run test -- --e=staging --app=all
+              
+              test commit
